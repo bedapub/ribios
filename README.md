@@ -14,6 +14,7 @@
 | [ribiosExpression](https://github.com/bedapub/ribiosExpression) | Gene Expression Analysis in 'ribios' | [![R-CMD-check](https://github.com/bedapub/ribiosExpression/actions/workflows/standard-ci-workflow.yml/badge.svg)](https://github.com/bedapub/ribiosExpression/actions/workflows/standard-ci-workflow.yml) |
 | [ribiosAnnotation](https://github.com/bedapub/ribiosAnnotation) | Annotation of Genes, RNAs, and Proteins in 'ribios'                      | [![R-CMD-check](https://github.com/bedapub/ribiosAnnotation/actions/workflows/standard-ci-workflow.yml/badge.svg)](https://github.com/bedapub/ribiosAnnotation/actions/workflows/standard-ci-workflow.yml) |
 | [ribiosNGS](https://github.com/bedapub/ribiosNGS)               | Handling Next-Generation Sequencing ('NGS') data in 'ribios' | [![R-CMD-check](https://github.com/bedapub/ribiosNGS/actions/workflows/standard-ci-workflow.yml/badge.svg)](https://github.com/bedapub/ribiosNGS/actions/workflows/standard-ci-workflow.yml)               |
+| [ribiosGSEA](https://github.com/bedapub/ribiosGSEA)             | Gene-Set Enrichment Analysis Tools in 'ribios'                           | [![R-CMD-check](https://github.com/bedapub/ribiosGSEA/actions/workflows/standard-ci-workflow.yml/badge.svg)](https://github.com/bedapub/ribiosGSEA/actions/workflows/standard-ci-workflow.yml)             |
 
 ## Installation
 
