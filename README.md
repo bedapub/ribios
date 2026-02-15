@@ -33,3 +33,7 @@ source("install_ribios.Rscript")
 ```
 
 Both scripts install Bioconductor and CRAN dependencies first, then install the ribios packages from GitHub in dependency order.
+
+## For developers
+
+I used `CRAN-check.md` to instruct Claude Code to check the packages before submission to CRAN or Bioconductor.

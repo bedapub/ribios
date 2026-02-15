@@ -8,6 +8,7 @@ ribiosExpression/
 ribiosAnnotation/
 ribiosNGS/
 ribiosArg/
+ribiosGSEA/
 
 # R check output
 *.Rcheck/
@@ -19,3 +20,4 @@ ribiosArg/
 .Rhistory
 .RData
 .Rproj.user
+ribios-cran-submission-plan.md
