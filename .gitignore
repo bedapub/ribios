@@ -1,0 +1,21 @@
+# Package subdirectories
+ribiosUtils/
+ribiosIO/
+ribiosPlot/
+ribiosMath/
+ribiosGraph/
+ribiosExpression/
+ribiosAnnotation/
+ribiosNGS/
+ribiosArg/
+
+# R check output
+*.Rcheck/
+
+# Package tarballs
+*.tar.gz
+
+# Other R artifacts
+.Rhistory
+.RData
+.Rproj.user

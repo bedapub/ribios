@@ -1,0 +1,60 @@
+#!/usr/bin/env Rscript
+
+## Install ribios packages and all their dependencies from GitHub (bedapub org)
+## Usage: Rscript install_ribios.Rscript
+##    or: source("install_ribios.Rscript") from within R
+
+cat("=== Installing ribios packages from GitHub (bedapub) ===\n")
+
+## Step 1: Install remotes and BiocManager if needed, then Bioconductor packages
+cat("--- Installing Bioconductor dependencies ---\n")
+if (!requireNamespace("remotes", quietly = TRUE))
+    install.packages("remotes", repos = "https://cloud.r-project.org")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager", repos = "https://cloud.r-project.org")
+BiocManager::install(c(
+    "Biobase", "BiocGenerics", "limma", "edgeR",
+    "ComplexHeatmap", "circlize", "sva", "vsn", "made4"
+), update = FALSE, ask = FALSE)
+
+## Step 2: Install CRAN dependencies
+cat("--- Installing CRAN dependencies ---\n")
+cran_pkgs <- c(
+    "Rcpp", "RcppArmadillo",
+    "lattice", "RColorBrewer", "gridExtra", "ggplot2",
+    "igraph", "magrittr", "plotly",
+    "dplyr", "tidyr", "rjson", "mongolite",
+    "Matrix", "openxlsx",
+    "readr", "readxl", "rlang", "scales",
+    "UpSetR", "gt", "ggrepel", "reshape2"
+)
+to_install <- cran_pkgs[!sapply(cran_pkgs, requireNamespace, quietly = TRUE)]
+if (length(to_install) > 0) {
+    install.packages(to_install, repos = "https://cloud.r-project.org")
+}
+
+## Step 3: Install ribios packages from GitHub in dependency order
+cat("--- Installing ribios packages from GitHub ---\n")
+remotes::install_github("bedapub/ribiosUtils",      upgrade = "never")
+remotes::install_github("bedapub/ribiosMath",        upgrade = "never")
+remotes::install_github("bedapub/ribiosArg",         upgrade = "never")
+remotes::install_github("bedapub/ribiosGraph",       upgrade = "never")
+remotes::install_github("bedapub/ribiosIO",          upgrade = "never")
+remotes::install_github("bedapub/ribiosPlot",        upgrade = "never")
+remotes::install_github("bedapub/ribiosAnnotation",  upgrade = "never")
+remotes::install_github("bedapub/ribiosExpression",  upgrade = "never")
+remotes::install_github("bedapub/ribiosNGS",         upgrade = "never")
+
+## Step 4: Verify installation
+cat("--- Verifying installation ---\n")
+pkgs <- c("ribiosUtils", "ribiosIO", "ribiosPlot", "ribiosMath",
+          "ribiosGraph", "ribiosExpression", "ribiosAnnotation", "ribiosNGS")
+ok <- sapply(pkgs, requireNamespace, quietly = TRUE)
+if (all(ok)) {
+    cat("All ribios packages installed successfully!\n")
+} else {
+    cat("FAILED to load:", pkgs[!ok], "\n")
+    quit(status = 1)
+}
+
+cat("=== Done ===\n")
